@@ -43,6 +43,8 @@ hist(steps, main="Steps taken by day", xlab="Steps taken")
 
 We can see most step measurements are between 10000-15000 while many measurements are slightly lower, and a few are higher. We can see that 75% of days people take 12800 or less steps. Our standard deviation is also quite high -- there is a large distribution.
 
+The mean is around `9354` while the median is slightly higher around `10400`.
+
 ## What is the average daily activity pattern?
 
 ```r
@@ -61,7 +63,7 @@ ggplot(data, aes(intervals, avg)) + geom_line() + scale_x_datetime(breaks=("3 ho
 ![plot of chunk average_daily_activity](figure/average_daily_activity-1.png) 
 
 ```r
-### Max Interval
+### Calculate the Max Interval
 format(data$interval[which.max(data$avg)], "%H:%M")
 ```
 
@@ -69,10 +71,10 @@ format(data$interval[which.max(data$avg)], "%H:%M")
 ## [1] "08:35"
 ```
 
-One can see the distribution of steps during the day, a particularly noticable peak is during the morning hours where people start their day.
+One can see the distribution of steps during the day, a particularly noticable peak is around `8:35` during the morning hours where people start their day.
 
 ## Imputing missing values
-Here we used the `mean` of the data for each interval to fill in values.
+Here we used the `mean` of the data for each interval to fill in the `NA` values.
 
 ```r
 # Number of missing values
